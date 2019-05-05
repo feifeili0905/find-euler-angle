@@ -1,0 +1,13 @@
+function R=find_Euler_angle(u1,u2)
+th1 = atan2d(u1(2),u1(1));
+M1z= RRz(90-th1);
+th2 = atan2d(u2(2),u2(1));
+M2z= RRz(90-th2);
+v1 = M1z*u1;
+v2 = M2z*u2;
+b = atan2d(v2(3),v2(2));
+a = atan2d(v1(3),v1(2));
+Mx = RRx(b-a);
+R = M2z'*Mx*M1z;
+% m2=R*u1;
+end
